@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/APS-BLOG/static/css/main.c0d65cae.css",
+    "main.js": "/APS-BLOG/static/js/main.8905bb70.js",
+    "static/js/453.a5bc2d8d.chunk.js": "/APS-BLOG/static/js/453.a5bc2d8d.chunk.js",
+    "index.html": "/APS-BLOG/index.html",
+    "main.c0d65cae.css.map": "/APS-BLOG/static/css/main.c0d65cae.css.map",
+    "main.8905bb70.js.map": "/APS-BLOG/static/js/main.8905bb70.js.map",
+    "453.a5bc2d8d.chunk.js.map": "/APS-BLOG/static/js/453.a5bc2d8d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0d65cae.css",
+    "static/js/main.8905bb70.js"
+  ]
+}

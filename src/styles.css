@@ -1,0 +1,401 @@
+:root { 
+    --bg: #f5f6fa; 
+    --primary: #40739e; 
+    --muted: #777; 
+    --sidebar-width: 280px;
+  }
+  
+  * { 
+    box-sizing: border-box; 
+  }
+  
+  body { 
+    margin: 0; 
+    font-family: 'Segoe UI', sans-serif; 
+    background: var(--bg); 
+    color: #333; 
+  }
+  
+  /* App Wrapper */
+  .app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header Styles */
+  .app-header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 900;
+  }
+  
+  .app-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 15px;
+    padding: 5px 10px;
+    transition: background 0.2s;
+    border-radius: 4px;
+  }
+  
+  .menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Sidebar Styles */
+  .sidebar { 
+    background: #2f3640;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Desktop Sidebar - Permanent */
+  .sidebar.desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    z-index: 800;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Mobile Sidebar - Overlay */
+  .sidebar.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .sidebar h2 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    border-bottom: 2px solid #44bd32;
+    padding-bottom: 10px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background 0.2s;
+    border-radius: 4px;
+  }
+  
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .sidebar .nav-btn { 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    padding: 12px 16px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    display: block; 
+    text-decoration: none; 
+    text-align: center;
+    font-size: 16px;
+    transition: all 0.2s;
+  }
+  
+  .sidebar .nav-btn:hover { 
+    background: #487eb0;
+    transform: translateX(5px);
+  }
+  
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .search-box input { 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 6px; 
+    border: none;
+    font-size: 14px;
+  }
+  
+  .search-box button { 
+    width: 100%; 
+    padding: 10px; 
+    background: #44bd32; 
+    border: none; 
+    border-radius: 6px; 
+    color: white; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  
+  .search-box button:hover {
+    background: #2ecc71;
+  }
+  
+  /* App Container */
+  .app-container { 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  /* Desktop Layout - Add margin for sidebar */
+  .app-container.with-sidebar {
+    margin-left: var(--sidebar-width);
+  }
+  
+  /* Main Content */
+  .main-content { 
+    flex: 1; 
+    padding: 20px; 
+    overflow-y: auto; 
+  }
+  
+  /* Blog List */
+  .blog-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+  }
+  
+  .blog-card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  }
+  
+  .blog-card:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .blog-card h3 {
+    margin: 0 0 10px 0;
+    color: #2f3640;
+  }
+  
+  .blog-card .date {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-card .tags { 
+    margin-top: 12px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+  }
+  
+  .tag { 
+    background: #dcdde1; 
+    color: #2f3640; 
+    border-radius: 6px; 
+    padding: 5px 10px; 
+    font-size: 12px; 
+    cursor: pointer; 
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  
+  .tag:hover { 
+    background: #44bd32; 
+    color: white; 
+    transform: scale(1.05);
+  }
+  
+  /* Form Container */
+  .form-container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    background: white; 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  }
+  
+  .form-container h2 {
+    margin-top: 0;
+    color: #2f3640;
+  }
+  
+  .form-container input, 
+  .form-container textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  
+  .form-container textarea {
+    resize: vertical;
+  }
+  
+  .form-container button { 
+    background: #273c75; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  
+  .form-container button:hover {
+    background: #192a56;
+  }
+  
+  /* Blog Detail */
+  .blog-detail { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+    max-width: 900px; 
+    margin: 0 auto; 
+  }
+  
+  .blog-detail h2 {
+    margin-top: 0;
+    color: #2f3640;
+  }
+  
+  .back-link { 
+    display: inline-block; 
+    margin-bottom: 16px; 
+    color: #273c75; 
+    font-weight: bold; 
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .back-link:hover {
+    color: #40739e;
+  }
+  
+  .delete-btn { 
+    background: #e84118; 
+    color: white; 
+    border: none; 
+    padding: 10px 16px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    margin-top: 16px;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  
+  .delete-btn:hover { 
+    background: #c23616; 
+  }
+  
+  /* Utility Classes */
+  .empty { 
+    text-align: center; 
+    color: var(--muted); 
+    margin-top: 100px;
+    font-size: 18px;
+  }
+  
+  .no-decoration { 
+    text-decoration: none; 
+    color: inherit; 
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    /* Remove sidebar margin on mobile */
+    .app-container.with-sidebar {
+      margin-left: 0;
+    }
+    
+    .sidebar {
+      width: 280px;
+    }
+    
+    .main-content {
+      padding: 15px;
+    }
+    
+    .form-container {
+      padding: 20px;
+    }
+    
+    .blog-detail {
+      padding: 20px;
+    }
+    
+    .app-header h1 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 250px;
+    }
+    
+    .main-content {
+      padding: 10px;
+    }
+    
+    .form-container,
+    .blog-detail {
+      padding: 15px;
+    }
+  }
